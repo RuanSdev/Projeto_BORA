@@ -1,0 +1,154 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 
+.login-container {
+    display: block;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    height: 400px;
+    margin-left: 40%;
+}
+
+.login-container h2 {
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input {
+    
+    margin-top: auto;   
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+   
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: #007bff;
+    width: 200px;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+} */
+
+
+
+html {
+    min-height: 100vh;
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    top: 0px;
+    left: 9.5%;
+}
+
+#logo img {
+    width: 80px;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-transform: uppercase;
+    background-color:powderblue;
+
+    list-style: none;
+    border-bottom: solid 2px;
+}
+
+#navbar li {
+    margin: 0 10px;
+    padding: 5px;
+}
+
+#navbar .nav-link {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#navbar .nav-link:hover {
+    transition: 2s;
+    color: green;
+}
+#navbar .nav-link.home:active {
+    color: green;
+}
+
+/* Footer */
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background-color: powderblue;
+    color: black;
+    padding: 25px 0;
+}
+.img{
+    width: 30vw;
+}
+@media (max-width:600px){
+    .img{
+        width: 60vw;
+    }
+    
+}
+
+.container{
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-column-gap: 20px;
+      
+}
+main{
+    background-color:ghostwhite;
+}
+
+
+.imgpost{
+    width: 60vw;
+    
+}
+.imgcategories{
+    width: 30vw;
+}
+.categories{
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-column-gap: 20px;
+}
+
+.home::active{
+    color: green;
+}

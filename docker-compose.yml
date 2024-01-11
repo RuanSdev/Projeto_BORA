@@ -1,0 +1,49 @@
+version: "3.9"
+services:
+    apache-php-ruan:
+        image: 'php:8.1.4-apache'
+        container_name: php-ruan
+        restart: always
+        build:
+            context: ./.devops/php
+            dockerfile: Dockerfile
+        env_file:
+            - .env
+        ports:
+            - '9001:80'
+        volumes:
+            - .:/var/www/html/
+            - ./.devops/apache/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+            - ./.devops/apache/httpd.conf:/etc/apache2/conf-available/httpd.conf
+            - ./.devops/apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+        extra_hosts:
+            - "host.docker-xdebug.internal:host-gateway"
+        depends_on:
+            - mysql-php-ruan
+        networks:
+          - php-ruan-network
+    mysql-php-ruan:
+        container_name: php-basico-mysql
+        image: 'mysql:8.0'
+        ports:
+            - '${FORWARD_DB_PORT:-3306}:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
+            MYSQL_DATABASE: '${MYSQL_DATABASE}'
+            MYSQL_USER: '${MYSQL_USER}'
+            MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        restart: always
+        volumes:
+            - mysql-data:/var/lib/mysql/
+        networks:
+            - php-ruan-network
+volumes:
+    mysql-data:
+networks:
+    php-ruan-network:
+        driver: bridge
+        name: php-ruan-network,
+        ipam:
+            config:
+                - subnet: 172.20.0.0/16
